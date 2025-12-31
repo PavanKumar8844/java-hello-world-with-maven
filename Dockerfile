@@ -1,3 +1,4 @@
-FROM tomcat:latest
-EXPOSE 8081
-CMD ["catalina.sh", "run"]
+FROM openjdk:17-jdk-slim
+COPY target/*.jar app.jar
+EXPOSE 8080
+ENTRYPOINT ["java","-jar","/app.jar"]
